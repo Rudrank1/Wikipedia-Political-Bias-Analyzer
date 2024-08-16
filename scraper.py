@@ -164,8 +164,8 @@ for name in representatives:
     else:
         representative_results.append([name, url, "Error: No content fetched."])
 
-save_to_csv('senators_info.csv', senator_results)
-print("Senators' information has been saved to 'senators_info.csv'.")
+save_to_csv('Databases/senators_info.csv', senator_results)
+print("Senators' information has been saved to 'Databases/senators_info.csv'.")
 
-save_to_csv('representatives_info.csv', representative_results)
-print("Representatives' information has been saved to 'representatives_info.csv'.")
+save_to_csv('Databases/representatives_info.csv', representative_results)
+print("Representatives' information has been saved to 'Databases/representatives_info.csv'.")
