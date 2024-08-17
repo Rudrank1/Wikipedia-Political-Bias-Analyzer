@@ -19,4 +19,4 @@ filtered_representatives_df = clean_sentence_count(representatives_party_df)
 filtered_representatives_df.to_csv('Databases/final_representatives_info.csv', index=False)
 
 politicians_df = pd.concat([filtered_senators_df, filtered_representatives_df], ignore_index=True)
-politicians_df.to_csv('Databases/politicians_info_df.csv', index=False)
+politicians_df.to_csv('Databases/final_politicians_info.csv', index=False)

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politician Stats</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Search Politician Stats</h1>
+        <form id="search-form" class="form-inline my-4">
+            <input class="form-control mr-sm-2" type="search" placeholder="Enter politician name" aria-label="Search" id="search-input">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <button class="btn btn-primary my-4" onclick="window.location.href='/stats'">View Statistics</button>
+
+        <div id="results" class="mt-4"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $('#search-form').on('submit', function(e) {
+            e.preventDefault();
+            const query = $('#search-input').val();
+            $.post('/search', { query }, function(data) {
+                $('#results').empty();
+                if (data.length > 0) {
+                    data.forEach(function(item) {
+                        $('#results').append(
+                            `<div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.Name}</h5>
+                                    <p class="card-text">Party: ${item['Party Affiliation']}</p>
+                                    <p class="card-text">Sentence Count: ${item['Sentence Count']}</p>
+                                    <p class="card-text">Positive Sentences: ${item['Positive Sentence Count']}</p>
+                                    <p class="card-text">Negative Sentences: ${item['Negative Sentence Count']}</p>
+                                    <p class="card-text">Achievements: ${item.Achievements}</p>
+                                    <p class="card-text">Criticisms: ${item.Criticisms}</p>
+                                    <p class="card-text">Bias Score: ${item['Bias Score']}</p>
+                                </div>
+                            </div>`
+                        );
+                    });
+                } else {
+                    $('#results').append('<p>No results found.</p>');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

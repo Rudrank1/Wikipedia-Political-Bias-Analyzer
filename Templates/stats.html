@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politician Stats</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Politician Stats</h1>
+        <div class="mt-4">
+            <h3>All Politicians</h3>
+            <img src="{{ url_for('custom_static', filename='bias_distribution_all.png') }}" alt="Bias Distribution All Politicians" class="img-fluid">
+            <img src="{{ url_for('custom_static', filename='avg_bias_all.png') }}" alt="Average Bias Score All Politicians" class="img-fluid">
+        </div>
+        <div class="mt-4">
+            <h3>Senators</h3>
+            <img src="{{ url_for('custom_static', filename='bias_distribution_senators.png') }}" alt="Bias Distribution Senators" class="img-fluid">
+            <img src="{{ url_for('custom_static', filename='avg_bias_senators.png') }}" alt="Average Bias Score Senators" class="img-fluid">
+        </div>
+        <div class="mt-4">
+            <h3>Representatives</h3>
+            <img src="{{ url_for('custom_static', filename='bias_distribution_representatives.png') }}" alt="Bias Distribution Representatives" class="img-fluid">
+            <img src="{{ url_for('custom_static', filename='avg_bias_representatives.png') }}" alt="Average Bias Score Representatives" class="img-fluid">
+        </div>
+    </div>
+</body>
+</html>
